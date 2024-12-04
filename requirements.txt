@@ -1,5 +1,5 @@
 cryptography
-pendulum==2.0.0
-setuptools==66.0.0
-urllib3==1.26.20
-pyOpenSSL==23.2.0
+pendulum
+setuptools
+urllib3
+pyOpenSSL
