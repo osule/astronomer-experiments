@@ -1,0 +1,8 @@
+astro-sdk-python[amazon,databricks,duckdb,google,postgres,snowflake]==1.5.3
+
+apache-airflow-providers-postgres==5.10.0
+cryptography==40.0.0
+pendulum==2.0.0
+setuptools==66.0.0
+urllib3==1.26.20
+pyOpenSSL==23.2.0
