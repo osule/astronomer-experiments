@@ -18,7 +18,7 @@ default_args = {
         "Oluwafemi Sule": "https://github.com/osule/astronomer-experiments",
     },
 )
-def expand_tasks_sql_orig():
+def expand_tasks_sql_hack_2():
     @task_group(group_id="group1")
     def tg1(id):
         # Task 1: Check if the condition is met
@@ -44,4 +44,4 @@ def expand_tasks_sql_orig():
     # Create 6 instances of the task group group1 with dynamic task mapping
     tg1.expand(id=[19, 23, 42, 8, 7, 108])
 
-dag_obj = expand_tasks_sql_orig()
+dag_obj = expand_tasks_sql_hack_2()

@@ -14,6 +14,7 @@ default_args = {
     "owner": "Oluwafemi Sule",
 }
 
+
 @dag(
     default_args=default_args,
     schedule_interval="0 0 * * *",  # Cron schedule
@@ -29,12 +30,14 @@ def expand_tasks_bash():
     @task_group(group_id="group1")
     def tg1(my_num):
         """Task group to process a number."""
-        
+
         # Task to print the number
         print_num = BashOperator(
             task_id="print_num",
             bash_command='echo "Number is {{ params.my_num.resolve({"ti": ti, "run_id": run_id}) }}"',
-            params={"my_num": my_num},  # Pass as an environment variable for dynamic expansion
+            params={
+                "my_num": my_num
+            },  # Pass as an environment variable for dynamic expansion
         )
 
         # Task to add 42 to the number
@@ -49,6 +52,7 @@ def expand_tasks_bash():
 
     # Expanding the task group with a list of input values
     tg1.expand(my_num=[19, 23, 42, 8, 7, 108])
+
 
 # Instantiate the DAG
 dag_obj = expand_tasks_bash()
